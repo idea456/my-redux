@@ -14,7 +14,7 @@
  * @param reducer A function that takes in the previous state and action to reduce the current state into a new state
  * @param enhancer An enhancer is the store enhancer which is used to enhance the store with more functionalities. Examples of enhancers are middlewares
  */
-export default function createStore(reducer, enhancer) {
+function createStore(reducer, enhancer) {
     let currentState = undefined
     let dispatching = false
     let subscribers = []
@@ -37,7 +37,7 @@ export default function createStore(reducer, enhancer) {
         try {
             dispatching = true
             // update the state in the store to the next state, which is returned by the reducer
-            currentState = storeReducer(state, action)
+            currentState = storeReducer(currentState, action)
         } finally {
             dispatching = false
         }
@@ -74,3 +74,5 @@ export default function createStore(reducer, enhancer) {
         replaceReducer,
     }
 }
+
+module.exports = createStore
