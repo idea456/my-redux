@@ -32,8 +32,8 @@ Dispatches an action to be performed to transform the state purely by returning 
 ### getState()
 Returns the current state. If there are multiple reducers, returns an key-value object in which the keys represents the state names and the values are the current states for each particular reducer.
 
-### subscribe()
-Subscribes a listener, which is executed after the state has been reduced. Listeners are functions which is executed after the store has finished dispatching.
+### subscribe(handler)
+Subscribes a listener/handler, which is executed after the state has been reduced. Listeners/Handlers are functions which is executed after the store has finished dispatching.
 
 ### replaceReducer()
 A helper function which replaces the current reducer.
